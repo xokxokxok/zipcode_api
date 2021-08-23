@@ -69,8 +69,3 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
-
-Capybara.register_driver :selenium_firefox do |app|
-  Capybara::Selenium::Driver.new(app, :browser => :firefox)
-end
-Capybara.current_driver = :selenium_firefox
