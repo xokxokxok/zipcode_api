@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-action">
+    User: <%= @user.name %>
+  </div>
+  <div class="card-content">
+    <p>Email: <%= @user.email %></p>
+    <p>Permissão: <%= @user.role_text %></p>
+    <p>Created At<%= l(@user.created_at) %></p>
+    <p>Updated At<%= l(@user.updated_at) %></p>
+    <% if can? :edit, @user %>
+      <%= link_to "Edit", admin_edit_user_path(@user), class: 'waves-effect waves-light' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="card">
+  <div class="card-action">
+    <%= t('activerecord.models.product.other') %>
+  </div>
+  <div class="card-content">
+    <%= paginate @products %>
+    <table class="striped centered responsive-table">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :id, :id) %></th>
+          <th><%= sort_link(@q, :slug, :slug) %></th>
+          <th><%= sort_link(@q, :name, :name) %></th>
+          <th>Option types values</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td>
+              <div class="table-primary-info">
+                <%= product.id %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= product.slug %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= product.name %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <% product.option_types.each do |t| %>
+                  <%= t.name.pluralize.titleize %>:
+                  <%= t.option_values.map { |o| o.name }.join(", ") %>
+                  <br>
+                <% end %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @products %>
+  </div>
+</div>

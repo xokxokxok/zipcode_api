@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-action">
+    Sign In
+  </div>
+  <div class="card-content">
+    <%= render 'devise/shared/error_messages', resource: resource %>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="row m-b-0">
+        <div class="input-field col s12 m5">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+          <%= f.label :email %>
+        </div>
+        <div class="input-field col s12 m5">
+          <%= f.password_field :password, autocomplete: "current-password" %>
+          <%= f.label :password %>
+        </div>
+        <div class="input-field col s12 m2">
+          <%= f.button "Login", class: 'waves-effect waves-light btn', style: 'width: 100%;' %>
+        </div>
+      </div>
+      <div class="row m-b-0">
+        <% if devise_mapping.rememberable? %>
+          <div class="input-field col s12 m5 center-align">
+            <p>
+              <label>
+                <%= f.check_box :remember_me, class: 'filled-in' %>
+                <span>Remember Me</span>
+              </label>
+            </p>
+          </div>
+        <% end %>
+        <% if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+          <div class="input-field col s12 m5 center-align">
+            <%= link_to "Forgot password", new_password_path(resource_name) %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

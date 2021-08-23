@@ -1,0 +1,33 @@
+<div class="card">
+  <div class="card-action">
+    Sign Up
+  </div>
+  <div class="card-content">
+    <%= render 'devise/shared/error_messages', resource: resource %>
+    <%= form_for(User.new, as: :user, url: registration_path(:user)) do |f| %>
+      <div class="row m-b-0">
+        <div class="input-field col s12 m3">
+          <%= f.text_field :name %>
+          <%= f.label :name %>
+        </div>
+        <div class="input-field col s12 m3">
+          <%= f.email_field :email %>
+          <%= f.label :email %>
+        </div>
+        <div class="input-field col s12 m3">
+          <%= f.password_field :password, characters: @minimum_password_length %>
+          <%= f.label :password %>
+        </div>
+        <div class="input-field col s12 m3">
+          <%= f.password_field :password_confirmation, characters: @minimum_password_length %>
+          <%= f.label :password_confirmation %>
+        </div>
+      </div>
+      <div class="row m-b-0">
+        <div class="input-field col s12">
+          <%= f.button "Register", class: 'waves-effect waves-light btn', style: 'width: 100%;' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

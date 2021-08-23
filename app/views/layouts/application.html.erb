@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+  <head>
+    <title>WebApp Solides</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Fabiano Ishiy Zaparoli">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <!--<link rel="shortcut icon" href="/favicon.ico">-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+    <%= stylesheet_link_tag 'application', debug: true %>
+    <%= javascript_include_tag 'application', debug: true %>
+  </head>
+<body>
+  <div class="nav-wrapper">
+    <nav>
+      <a href="#!" class="brand-logo">
+        <span style="padding-left: 15px;"><%= t('ZipcodeApi') %></span>
+      </a>
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <% if @current_user.blank? %>
+          <li><%= link_to t('menu.login'), new_user_session_path %></li>
+          <li><%= link_to t('menu.register'), new_user_registration_path %></li>
+        <% else %>
+          <% if @current_user.admin? %>
+            <li><%= link_to t('menu.users'), admin_users_path %></li>
+          <% end %>
+          <li><%= link_to t('menu.account'), admin_edit_user_path(@current_user) %></li>
+          <li><%= link_to t('menu.logout'), logout_path %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+  <ul class="sidenav" id="mobile-demo">
+    <li><a href="sass.html">login</a></li>
+
+    <li><a href="collapsible.html"></a></li>
+    <li><a href="mobile.html">Mobile</a></li>
+    <li><a href="badges.html">logout</a></li>
+  </ul>
+  <div class="container">
+    <% flash.each do |key, value| %>
+      <div class="card card-alert <%= ([:alert, :error].include?(key.to_sym)) ? 'red' : 'green' %>">
+        <div class="card-content white-text">
+          <span class="card-title">
+            <%= value %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+    <%= yield %>
+  </div>
+  <script>
+    $(document).ready(function(){
+      $('.sidenav').sidenav();
+      $('select').formSelect();
+    });
+  </script>
+  </body>
+</html>

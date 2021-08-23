@@ -1,0 +1,57 @@
+<div class="card">
+  <div class="card-action">
+    <%= t('activerecord.models.user.other') %>
+  </div>
+  <div class="card-content">
+    <%= paginate @users %>
+    <table class="striped centered responsive-table">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :name,       :name) %></th>
+          <th><%= sort_link(@q, :email,      :email) %></th>
+          <th><%= sort_link(@q, :role,       :role) %></th>
+          <th><%= sort_link(@q, :created_at, :created_at) %></th>
+          <th><%= sort_link(@q, :updated_at, :updated_at) %></th>
+          <th><%= t('actions.title') %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td>
+              <div class="table-primary-info">
+                <%= user.name %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= user.email %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= user.role_text %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= l(user.created_at) %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= l(user.updated_at) %>
+              </div>
+            </td>
+            <td>
+              <% if can? :edit, user %>
+                <%= link_to t('actions.edit'), admin_edit_user_path(user), class: 'waves-effect waves-light' %>
+              <% end %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @users %>
+  </div>
+</div>

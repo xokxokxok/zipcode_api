@@ -1,0 +1,63 @@
+<div class="card">
+  <div class="card-action">
+    <%= t('activerecord.models.variant.other') %>
+  </div>
+  <div class="card-content">
+    <%= paginate @variants %>
+    <table class="striped centered responsive-table">
+      <thead>
+        <tr>
+          <th><%= sort_link(@q, :id, :id) %></th>
+          <th><%= sort_link(@q, :name, :name) %></th>
+          <th><%= sort_link(@q, :description, :description) %></th>
+          <th><%= sort_link(@q, :price, :price) %></th>
+          <th>Option values</th>
+          <th><%= sort_link(@q, :created_at, :created_at) %></th>
+          <th><%= sort_link(@q, :updated_at, :updated_at) %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @variants.each do |variant| %>
+          <tr>
+            <td>
+              <div class="table-primary-info">
+                <%= variant.id %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= variant.name %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= variant.description %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= variant.price %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= variant.option_values.map { |o| o.name }.join(", ") %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= l(variant.created_at, format: :short) %>
+              </div>
+            </td>
+            <td>
+              <div class="table-primary-info">
+                <%= l(variant.updated_at, format: :short) %>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= paginate @variants %>
+  </div>
+</div>

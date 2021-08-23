@@ -1,0 +1,76 @@
+body {
+    background: #f3f3f3;
+}
+
+.nav-wrapper {
+    margin-bottom: 25px;
+}
+nav {
+    background: #ffffff;
+}
+nav a {
+    color: #444444 !important;
+}
+
+.brand-logo {
+    white-space: nowrap;
+}
+
+.card {
+    margin-bottom: 25px;
+    margin-top: 50px;
+}
+.card .card-action {
+    background: #4d2c8e;
+    color: #ffffff;
+    font-size: 18px;
+}
+.card.card-alert {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0px;
+    margin-bottom: 25px;
+}
+.card.card-alert .card-content {
+    padding: 16px 24px;
+}
+.card.card-alert .card-title {
+    font-size: 14px;
+    line-height: 18px;
+    margin: 0px;
+}
+
+.btn, .btn-large, .btn-small {
+    background: #4d2c8e;
+    height: 46px;
+    line-height: 46px;
+    width: 100%;
+}
+.btn:hover, .btn-large:hover, .btn-small:hover {
+    background: #934ad2;
+}
+
+table .table-primary-info {
+
+}
+
+table .table-additional-info {
+    font-weight: lighter;
+    font-size: 11px;
+    color: #666666;
+}
+
+
+.m-b-0 {
+    margin-bottom: 0px;
+}
+.m-t-15 {
+    margin-top: 15px;
+}
+.m-b-15 {
+    margin-bottom: 15px;
+}
+
+label.with_errors {
+    color: red !important;
+}

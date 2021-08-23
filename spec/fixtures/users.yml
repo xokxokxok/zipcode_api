@@ -1,0 +1,5 @@
+admin:
+  role: 'admin'
+  name: 'Administrator'
+  email: 'admin@admin.com'
+  encrypted_password: '$2a$12$eLPP1jQW8sm5pIHUHhkSGuPW/uaUciRtdSbNGhP1vbZsmw9bikoVS'

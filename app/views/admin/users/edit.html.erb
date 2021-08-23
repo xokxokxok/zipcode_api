@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-action">
+    <%= t('activerecord.models.user.one') %>
+  </div>
+  <div class="card-content">
+    <%= render 'devise/shared/error_messages', resource: @user %>
+    <%= form_for(@user, url: admin_update_user_path(@user)) do |f| %>
+      <% if @current_user.admin? %>
+        <div class="row m-b-0">
+          <div class="input-field col s3">
+            <%= f.select :role, User.role.options %>
+            <%= f.label :role %>
+          </div>
+        </div>
+      <% end %>
+      <div class="row m-b-0">
+        <div class="input-field col s12 m3">
+          <%= f.text_field :name %>
+          <%= f.label :name %>
+        </div>
+        <div class="input-field col s12 m3">
+          <%= f.email_field :email %>
+          <%= f.label :email %>
+        </div>
+        <div class="input-field col s12 m3">
+          <%= f.password_field :password, placeholder: t('controllers.devise/registrations.new.characters_at_least', characters: @minimum_password_length) %>
+          <%= f.label :password %>
+        </div>
+        <div class="input-field col s12 m3">
+          <%= f.password_field :password_confirmation, placeholder: t('controllers.devise/registrations.new.characters_at_least', characters: @minimum_password_length) %>
+          <%= f.label :password_confirmation %>
+        </div>
+      </div>
+      <div class="row m-b-0">
+        <div class="input-field col s12">
+          <%= f.button t('actions.update'), class: 'waves-effect waves-light btn', style: 'width: 100%;' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

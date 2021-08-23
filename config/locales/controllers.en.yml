@@ -1,0 +1,7 @@
+en:
+  controllers:
+    default:
+      flash:
+        update:
+          success: 'Updated with success!'
+          error: 'Error! Register not updated'

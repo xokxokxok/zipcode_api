@@ -1,0 +1,15 @@
+<% if resource.errors.any? %>
+  <div class="row">
+    <div class="col s12">
+      <div class="card card-alert <%= resource.errors.present? ? 'red' : 'green' %>">
+        <div class="card-content white-text">
+          <% resource.errors.full_messages.each do |message| %>
+            <div><%= message %></div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+

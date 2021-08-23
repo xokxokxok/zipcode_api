@@ -1,0 +1,153 @@
+{
+	"info": {
+		"_postman_id": "6f03833a-f1fa-4c9b-8a87-bb48436d2d1c",
+		"name": "zipcode_api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "index",
+			"protocolProfileBehavior": {
+				"strictSSL": false,
+				"followRedirects": false
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "01e014cb-1fb3-4189-93a3-b163e11f92d4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://zipcode_api-1174557878.us-east-1.elb.amazonaws.com/api/v1/backscratchers",
+					"protocol": "http",
+					"host": [
+						"zipcode_api-1174557878",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"backscratchers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "01e014cb-1fb3-4189-93a3-b163e11f92d4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"The Itcher NEW\",\n    \"description\": \"Scratch any itch NEW\",\n    \"price\": \"$50.0\",\n    \"sizes\": [\"S\", \"M\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://zipcode_api-1174557878.us-east-1.elb.amazonaws.com/api/v1/backscratchers",
+					"protocol": "http",
+					"host": [
+						"zipcode_api-1174557878",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"backscratchers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "token",
+						"value": "01e014cb-1fb3-4189-93a3-b163e11f92d4",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"The Itcher UPDATED\",\n    \"description\": \"Scratch any itch UPDATED\",\n    \"price\": \"$60.0\",\n    \"sizes\": [\"S\", \"L\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://zipcode_api-1174557878.us-east-1.elb.amazonaws.com/api/v1/backscratchers/6",
+					"protocol": "http",
+					"host": [
+						"zipcode_api-1174557878",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"backscratchers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "token",
+						"value": "01e014cb-1fb3-4189-93a3-b163e11f92d4",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://zipcode_api-1174557878.us-east-1.elb.amazonaws.com/api/v1/backscratchers/6",
+					"protocol": "http",
+					"host": [
+						"zipcode_api-1174557878",
+						"us-east-1",
+						"elb",
+						"amazonaws",
+						"com"
+					],
+					"path": [
+						"api",
+						"v1",
+						"backscratchers",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,15 @@
+en:
+  activerecord:
+    models:
+      role:
+        one: 'Permission'
+        other: 'Permissions'
+      user:
+        one: 'User'
+        other: 'Users'
+      product:
+        one: 'Product'
+        other: 'Products'
+      variant:
+        one: 'Variant'
+        other: 'Variants'
